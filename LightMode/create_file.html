@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create File</title>
+    <link rel="stylesheet" href="lightmode.css">
+</head>
+<body>
+    <h1>Create File</h1>
+    <form id="createFileForm"  action="http://localhost:3000/LightMode/create_file" method = "post">
+        <label for="filename">Filename:</label>
+        <input type="text" id="filename" name="filename" required><br>
+        <label for="extension">Extension:</label>
+        <select id="extension" name="extension" required>
+            <option value="c">.c</option>
+            <option value="cpp">.cpp</option>
+            <option value="py">.py</option>
+            <option value="java">.java</option>
+        </select><br>
+        <button type="submit">Create File</button>
+    </form>
+
+    <div id="responseMessage"></div>
+
+    <script>
+        document.getElementById('createFileForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const responseMessage = document.getElementById('responseMessage');
+
+            try {
+                const response = await fetch('http://localhost:3000/LightMode/create_file', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+
+                if (response.ok) {
+                    responseMessage.textContent = data.success;
+                } else {
+                    responseMessage.textContent = data.error || 'An error occurred';
+                }
+            } catch (error) {
+                responseMessage.textContent = 'An error occurred here';
+                console.error(error);
+            }
+        });
+    </script>
+</body>
+</html>

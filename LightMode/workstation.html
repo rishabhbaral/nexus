@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workstation</title>
+    <link rel="stylesheet" href="lightmode.css">
+</head>
+<body>
+    <button id="LogIn">Log In</button>
+    <button id="SignUp">Sign Up</button>
+    <div id="taskbar">
+        <!-- Add your taskbar content here -->
+        <a href="create_file.html" target="_self"><button>New Project</button></a>
+        <a href="editCode.html" target="_self"><button>Continue Project</button></a>
+        <a href="" target="_self"><button>Social Feed</button></a>
+        <br>
+        <a href="" target="_self"><img src="./recycleBin.jpg" height="40px" width="40px"></a>
+    </div>
+    
+    <script>
+        // JavaScript to handle showing/hiding the taskbar
+        document.addEventListener("DOMContentLoaded", function() {
+            const taskbar = document.getElementById('taskbar');
+            document.addEventListener('mousemove', function(event) {
+                if (event.clientX <= 200 && event.clientY <= 200) {
+                    taskbar.style.left = '0';
+                } else {
+                    taskbar.style.left = '-200px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
