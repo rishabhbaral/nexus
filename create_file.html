@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create File</title>
-    <link rel="stylesheet" href="darkmode.css">
+    <link rel="stylesheet" href="lightmode.css">
 </head>
 <body>
     <h1>Create File</h1>
-    <form id="createFileForm"  action="http://localhost:3000/DarkMode/create_file" method = "post">
+    <form id="createFileForm"  action="http://localhost:3000/LightMode/create_file" method = "post">
         <label for="filename">Filename:</label>
         <input type="text" id="filename" name="filename" required><br>
         <label for="extension">Extension:</label>
@@ -31,7 +31,7 @@
             const responseMessage = document.getElementById('responseMessage');
 
             try {
-                const response = await fetch('http://localhost:3000/DarkMode/create_file', {
+                const response = await fetch('http://localhost:3000/LightMode/create_file', {
                     method: 'POST',
                     body: formData
                 });
