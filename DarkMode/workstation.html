@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workstation</title>
+    <link rel="stylesheet" href="darkmode.css">
+</head>
+<body>   
+    <button id="LogIn">Log In</button>
+    <button id="SignUp">Sign Up</button>
+    <div id="taskbar">
+        <!-- Add your taskbar content here -->
+        Taskbar Content
+    </div>
+    
+    <script>
+        // JavaScript to handle showing/hiding the taskbar
+        document.addEventListener("DOMContentLoaded", function() {
+            const taskbar = document.getElementById('taskbar');
+            document.addEventListener('mousemove', function(event) {
+                if (event.clientX <= 50 && event.clientY <= 50) {
+                    taskbar.style.left = '0';
+                } else {
+                    taskbar.style.left = '-200px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
